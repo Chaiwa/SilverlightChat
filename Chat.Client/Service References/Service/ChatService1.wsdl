@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:1103/ChatService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:1103/ChatService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ChatService_AttachClient_InputMessage">
+    <wsdl:part name="parameters" element="AttachClient" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_AttachClient_OutputMessage">
+    <wsdl:part name="parameters" element="AttachClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_DetachClient_InputMessage">
+    <wsdl:part name="parameters" element="DetachClient" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_DetachClient_OutputMessage">
+    <wsdl:part name="parameters" element="DetachClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_Broadcast_InputMessage">
+    <wsdl:part name="parameters" element="Broadcast" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_Broadcast_OutputMessage">
+    <wsdl:part name="parameters" element="BroadcastResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_Notify_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="Notify" />
+  </wsdl:message>
+  <wsdl:message name="ChatService_NotifyPersonal_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="NotifyPersonal" />
+  </wsdl:message>
+  <wsdl:portType name="ChatService">
+    <wsdl:operation name="AttachClient">
+      <wsdl:input wsaw:Action="urn:ChatService/AttachClient" message="ChatService_AttachClient_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ChatService/AttachClientResponse" message="ChatService_AttachClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetachClient">
+      <wsdl:input wsaw:Action="urn:ChatService/DetachClient" message="ChatService_DetachClient_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ChatService/DetachClientResponse" message="ChatService_DetachClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Broadcast">
+      <wsdl:input wsaw:Action="urn:ChatService/Broadcast" message="ChatService_Broadcast_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ChatService/BroadcastResponse" message="ChatService_Broadcast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="urn:ChatService/SendMessage" message="ChatService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:ChatService/SendMessageResponse" message="ChatService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Notify">
+      <wsdl:output wsaw:Action="urn:ChatService/Notify" message="ChatService_Notify_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyPersonal">
+      <wsdl:output wsaw:Action="urn:ChatService/NotifyPersonal" message="ChatService_NotifyPersonal_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
